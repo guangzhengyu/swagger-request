@@ -1,8 +1,8 @@
 let _axios
 
 /**
-* 绑定axios
-* @param axios axios实例
+* Bind axios
+* @param axios axios
 */
 export function bindAxios(axios) {
 _axios = axios
@@ -11,11 +11,11 @@ _axios = axios
 {{#apis}}
 /**
 * {{description}}
-* @param params {Object} 传参
+* @param params {Object} param
 */
 export function {{name}} (params = {}) {
 if(!_axios) {
-throw new Error('需要先调用bindAxios绑定axios实例')
+throw new Error('No available axios. Call bindAxios() first')
 }
 const config = {
 url: `{{path}}`,

@@ -7,7 +7,7 @@ Generate axios api functions from swagger json
 import swaggerRequest from 'swagger-request'
 
 swaggerRequest({
-  docUrl: 'yourswaggerwebsite.com/swagger.json',
+  docUrl: 'https://your.swagger-doc.com/swagger.json',
   filepath: path.join(__dirname, './your/folder')
 })
 ```

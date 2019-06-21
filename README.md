@@ -75,7 +75,7 @@ export function getStars (params = {}) {
  */
 export function getStars (params = {}) {
   if (!_axios) {
-    throw new Error('No available axios. Please invoke bindAxios() first')
+    throw new Error('No available axios. Please call bindAxios() first')
   }
   const config = {
     url: `/user/${params.id}`,

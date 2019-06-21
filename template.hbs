@@ -5,6 +5,9 @@ let _axios
 * @param axios axios
 */
 export function bindAxios(axios) {
+if(!!_axios){
+throw new Error('bindAxios can only be called once')
+}
 _axios = axios
 }
 

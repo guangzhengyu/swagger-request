@@ -1,6 +1,6 @@
 {
   "name": "swagger-request",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Generate requests based on swagger json",
   "main": "index.js",
   "author": "yuguangzheng@zaih.com",

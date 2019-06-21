@@ -13,7 +13,7 @@ function getTemplate (templateData) {
 /**
  *
  * @param docUrl {String} Swagger json url
- * @param absolute path {String} Relative output path
+ * @param path {String} Absolute output path
  */
 function generateFile ({ docUrl, filepath }) {
   Swagger.resolve({ url: docUrl }).then(res => {

@@ -1,0 +1,35 @@
+let _axios
+
+/**
+* 绑定axios
+* @param axios axios实例
+*/
+export function bindAxios(axios) {
+_axios = axios
+}
+
+{{#apis}}
+/**
+* {{description}}
+* @param params {Object} 传参
+*/
+export function {{name}} (params = {}) {
+if(!_axios) {
+throw new Error('需要先调用bindAxios绑定axios实例')
+}
+const config = {
+url: `{{path}}`,
+method: '{{method}}',
+{{#if hasRequestBody}}
+    data: params
+{{else}}
+    params
+{{/if}}
+}
+{{#if hasIdInPath}}
+    delete params.id
+{{/if}}
+_axios.request(config)
+}
+
+{{/apis}}

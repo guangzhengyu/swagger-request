@@ -1,0 +1,16 @@
+{
+  "name": "swagger-request",
+  "version": "0.0.6",
+  "description": "Generate requests based on swagger json",
+  "main": "index.js",
+  "author": "yuguangzheng@zaih.com",
+  "license": "ISC",
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "fs-extra": "^8.0.1",
+    "handlebars": "^4.1.2",
+    "js-beautify": "^1.10.0",
+    "swagger-client": "^3.9.0",
+    "swagger-request": "0.0.1"
+  }
+}

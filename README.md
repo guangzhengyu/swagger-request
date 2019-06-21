@@ -92,8 +92,9 @@ export function getStars (params = {}) {
 ## How to use these apis
 My practice is:
 ```javascript
-// user-api.js
+// ./apis/user-api.js
 import { bindAxios } from '../generated-swagger/user.js'
+import * as userApi from '../generated-swagger/user.js'
 import axios from 'axios'
 
 // Make sure init first.
@@ -111,10 +112,12 @@ axios.interceptors.request.use(function (config) {
 
 bindAxios(axios)
 
+export default userApi
+
 // Then, use it anywhere you need
 // For example
-// user-repository.js
-import { getUsers } from '../generated-swagger/user.js'
+// ./respositories/user-repository.js
+import { getUsers } from '../apis/user-api'
 
 export function query () {
   return new Promise((resolve, reject) => {

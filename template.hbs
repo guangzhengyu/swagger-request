@@ -29,7 +29,7 @@ method: '{{method}}',
 {{#if hasIdInPath}}
     delete params.id
 {{/if}}
-_axios.request(config)
+return _axios.request(config)
 }
 
 {{/apis}}

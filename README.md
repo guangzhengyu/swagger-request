@@ -66,7 +66,7 @@ export function getStars (params = {}) {
     method: 'GET',
     params
   }
-  _axios.request(config)
+  return _axios.request(config)
 }
 
 /**
@@ -83,8 +83,49 @@ export function getStars (params = {}) {
     params
   }
   delete params.id
-  _axios.request(config)
+  return _axios.request(config)
 }
 ```
 
 `{id}` in path is changed to `${params.id}` 
+
+## How to use these apis
+My practice is:
+```javascript
+// user-api.js
+import { bindAxios } from '../generated-swagger/user.js'
+import axios from 'axios'
+
+// Make sure init first.
+axios.create({
+  baseURL: 'https://user.myhost.com'
+})
+
+axios.interceptors.request.use(function (config) {
+  // Do something before request is sent
+  return config
+}, function (error) {
+  // Do something with request error
+  return Promise.reject(error)
+})
+
+bindAxios(axios)
+
+// Then, use it anywhere you need
+// For example
+// user-repository.js
+import { getUsers } from '../generated-swagger/user.js'
+
+export function query () {
+  return new Promise((resolve, reject) => {
+    getUsers().then(({ data: user }) => {
+      return {
+        fullname: user.firstName + ' ' + user.lastName
+      }
+    }).catch(error => {
+      // ...handle the error
+      reject()
+    })
+  })
+}
+```

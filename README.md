@@ -96,11 +96,11 @@ import { bindAxios } from '../generated-swagger/user'
 import axios from 'axios'
 
 // Make sure init first.
-axios.create({
+const axiosInstance = axios.create({
   baseURL: 'https://user.myhost.com'
 })
 
-axios.interceptors.request.use(function (config) {
+axiosInstance.interceptors.request.use(function (config) {
   // Do something before request is sent
   return config
 }, function (error) {
@@ -108,7 +108,7 @@ axios.interceptors.request.use(function (config) {
   return Promise.reject(error)
 })
 
-bindAxios(axios)
+bindAxios(axiosInstance)
 
 // Then, use it anywhere you need
 // For example
